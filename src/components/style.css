@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+}
+.createcard{
+    overflow: auto;
+    height: 75vh;
+}
+
+@media (max-width : 600px){
+    .container{
+        flex-direction: column;
+        width: 300px;
+        padding: 0;
+    }
+    .createcard{
+        height: 50vh;
+        
+    }
+    .edidcontainer{
+        width: 300px;
+    }
+    .oldusercard{
+        font-size: small;
+    }
+}
