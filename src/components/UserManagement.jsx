@@ -5,32 +5,32 @@ import { DataContext } from './context'
 import axios from 'axios'
 function UserManagement() {
 
-    const {data,setdata,URL} = useContext(DataContext)
+    const { data, setdata, URL } = useContext(DataContext)
     const form = useRef(null)
 
     function addnewuser(e) {
         e.preventDefault()
         const formData = new FormData(e.currentTarget);
-        let newuserdata = {},address ={} , company = {}
-        for (let [key, value] of ([...formData]).slice(0,4)) {
+        let newuserdata = {}, address = {}, company = {}
+        for (let [key, value] of ([...formData]).slice(0, 4)) {
             newuserdata[key] = value
         }
         newuserdata.address = address
-        for (let [key, value] of ([...formData]).slice(4,8)) {
+        for (let [key, value] of ([...formData]).slice(4, 8)) {
             newuserdata["address"][key] = value
         }
-        for (let [key, value] of ([...formData]).slice(8,10)) {
+        for (let [key, value] of ([...formData]).slice(8, 10)) {
             newuserdata[key] = value
         }
         newuserdata.company = company
-        for (let [key, value] of ([...formData]).slice(10,13)) {
+        for (let [key, value] of ([...formData]).slice(10, 13)) {
             newuserdata["company"][key] = value
         }
-        console.log(newuserdata,data)
+        console.log(newuserdata, data)
         let newarr = [...data]
-        if(newarr.map(item=> item.id).indexOf(newuserdata.id) === -1){
-        newarr = [...newarr,newuserdata]
-        axios.post(URL,newuserdata).then((response)=>console.log(response)).catch((error)=>console.log(error))
+        if (newarr.map(item => item.id).indexOf(newuserdata.id) === -1) {
+            newarr = [...newarr, newuserdata]
+            axios.post(URL, newuserdata).then((response) => console.log(response)).catch((error) => console.log(error))
         }
         setdata(newarr)
         e.currentTarget.reset()

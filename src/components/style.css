@@ -1,25 +1,29 @@
-.container{
+.container {
     display: flex;
 }
-.createcard{
+
+.createcard {
     overflow: auto;
     height: 75vh;
 }
 
-@media (max-width : 600px){
-    .container{
+@media (max-width : 600px) {
+    .container {
         flex-direction: column;
         width: 300px;
         padding: 0;
     }
-    .createcard{
+
+    .createcard {
         height: 50vh;
-        
+
     }
-    .edidcontainer{
+
+    .edidcontainer {
         width: 300px;
     }
-    .oldusercard{
+
+    .oldusercard {
         font-size: small;
     }
 }

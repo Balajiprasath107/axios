@@ -7,7 +7,7 @@ import UserManagement from './components/UserManagement'
 function App() {
   return (
     <>
-      <UserManagement/>
+      <UserManagement />
     </>
   )
 }

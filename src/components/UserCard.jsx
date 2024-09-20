@@ -6,31 +6,31 @@ function UserCard({ user }) {
     const [edit, setedit] = useState(false)
     const newdata = useRef(null)
     const updateoption = useRef(null)
-    const { data, setdata,URL } = useContext(DataContext)
+    const { data, setdata, URL } = useContext(DataContext)
     function update(event) {
         event.preventDefault()
         let updatedata = updateoption.current.value.split(" ")
         let newarr = [...data]
-        if (updatedata.length > 1){
+        if (updatedata.length > 1) {
             newarr[newarr.indexOf(user)][updatedata[0]][updatedata[1]] = newdata.current.value
         }
-        else{
+        else {
             newarr[newarr.indexOf(user)][updatedata[0]] = newdata.current.value
             let obj = updatedata[0]
-            axios.patch(`${URL}/${user.id}`,{
-                obj : newdata.current.value
-            }).then((response)=>console.log(response)).catch((error)=>console.log(error))
+            axios.patch(`${URL}/${user.id}`, {
+                obj: newdata.current.value
+            }).then((response) => console.log(response)).catch((error) => console.log(error))
         }
         setdata(newarr)
 
         setedit(!edit)
     }
 
-    function deleteUser(){
-        let newarr = data.filter((item,index)=>
+    function deleteUser() {
+        let newarr = data.filter((item, index) =>
             index !== data.indexOf(user)
         )
-        axios.delete(`${URL}/${user.id}`).then((response)=>console.log(response)).catch((error)=>console.log(error))
+        axios.delete(`${URL}/${user.id}`).then((response) => console.log(response)).catch((error) => console.log(error))
         setdata(newarr)
 
     }
