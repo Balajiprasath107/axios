@@ -37,7 +37,7 @@ function UserManagement() {
     }
     return (
         <div>
-            <p className='fw-bolder mb-2 fs-1'>Users Data</p>
+            <p className='fw-bolder mb-2 fs-1'>Data Manager</p>
             <div className='container gap-5'>
                 <div>
                     <h2 className='fw-bolder'>Add/Create</h2>
